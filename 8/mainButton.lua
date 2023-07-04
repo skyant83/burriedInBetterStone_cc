@@ -23,6 +23,18 @@ if fs.exists("bigfont.lua") == false then -- Downloads bigfont
 	file.write(getGit)
 	file.close()
 end
+if fs.exists("logger.lua") == false then -- Downloads logger
+	print("Missing logger")
+	print("Attempting to download...")
+	if not http then
+	  error("Enable the HTTP API to download logger")
+	end
+	getGit = http.get("")
+	getGit = getGit.readAll()
+	file = fs.open("logger.lua", "w")
+	file.write(getGit)
+	file.close()
+end
 
 -- Loads the Touchpoint API
 os.loadAPI("buttonAPI.lua")
@@ -30,6 +42,12 @@ os.loadAPI("bigfont.lua")
 
 -- Searches for attached monitors and initializes two pages of buttons for each
 findMon = peripheral.getNames()
+
+if table.maxn(findMon) > 1 then
+	error("There are too many monitors connected. Maximum of 1 monitor is allowed", 2)
+    error("Support for multiple montiros have yet to be implenented", 0)
+	exit()
+end
 
 for _,side in pairs(findMon) do
 	local wrap = peripheral.wrap(side)
@@ -41,10 +59,7 @@ for _,side in pairs(findMon) do
 	print(wrap.getTextScale())
 end
 
---[[ if table.maxn(findMon) > 1 then
-    error("There are too many monitors connected. Maximum of 1 monitor is allowed", 2)
-    exit()
-end
+--[[ 
 mon = findMon[1]
 print(mon)
 peripheral.wrap(mon).setTextScale(0.5)
