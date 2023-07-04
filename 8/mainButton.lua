@@ -1,11 +1,27 @@
 -- Loads the Touchpoint API
-if fs.exists("buttonAPI") == false then -- load darkAPI
-	print("Missing DarkAPI")
+if fs.exists("buttonAPI.lua") == false then -- load buttonAPI
+	print("Missing buttonAPI")
 	print("Attempting to download...")
 	if not http then
-	  error("Enable the HTTP API to download DarkAPI")
+	  error("Enable the HTTP API to download buttonAPI")
 	end
-	
+	getGit = http.get("https://raw.githubusercontent.com/skyant83/burriedInBetterStone_cc/main/8/buttonAPI.lua?token=GHSAT0AAAAAACEWCLVP2F6QB5SX7WZ4C3HIZFD77MQ")
+	getGit = getGit.readAll()
+	file = fs.open("buttonAPI.lua", "w")
+	file.write(getGit)
+	file.close()  
+end
+if fs.exists("bigfont.lua") == false then -- load bigfont
+	print("Missing bigfont")
+	print("Attempting to download...")
+	if not http then
+	  error("Enable the HTTP API to download bigfont")
+	end
+	getGit = http.get("https://raw.githubusercontent.com/skyant83/burriedInBetterStone_cc/main/8/bigfont.lua?token=GHSAT0AAAAAACEWCLVPWKF3GJS66VF2FMMYZFEABSQ")
+	getGit = getGit.readAll()
+	file = fs.open("bigfont.lua", "w")
+	file.write(getGit)
+	file.close()
 end
 
 os.loadAPI("buttonAPI.lua")
