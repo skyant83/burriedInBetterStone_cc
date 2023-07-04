@@ -29,16 +29,17 @@ if fs.exists("logger.lua") == false then -- Downloads logger
 	if not http then
 	  error("Enable the HTTP API to download logger")
 	end
-	getGit = http.get("")
+	getGit = http.get("https://raw.githubusercontent.com/skyant83/burriedInBetterStone_cc/main/8/logger.lua?token=GHSAT0AAAAAACEWCLVPH64VBUFD45BCZJOMZFEA26Q")
 	getGit = getGit.readAll()
 	file = fs.open("logger.lua", "w")
 	file.write(getGit)
 	file.close()
 end
 
--- Loads the Touchpoint API
-os.loadAPI("buttonAPI.lua")
-os.loadAPI("bigfont.lua")
+-- Loads the All APIs
+buttonAPI = require("buttonAPI")
+bigfont = require("bigfont")
+logger = require("logger")
 
 -- Searches for attached monitors and initializes two pages of buttons for each
 findMon = peripheral.getNames()
@@ -46,11 +47,12 @@ findMon = peripheral.getNames()
 if table.maxn(findMon) > 1 then
 	error("There are too many monitors connected. Maximum of 1 monitor is allowed", 2)
     error("Support for multiple montiros have yet to be implenented", 0)
+	logger.log()
 	exit()
 end
 
 for _,side in pairs(findMon) do
-	local wrap = peripheral.wrap(side)
+	wrap = peripheral.wrap(side)
 	wrap.setTextScale(0.5)
 
 	page1 = buttonAPI.new(side)
@@ -110,10 +112,20 @@ local newlabel = {
 	label = "testlabel"
 }
 
+-- Clears the monitor and 
+function endProg()
+	local computerTerminal = term.redirect(wrap)
+	term.setBackgroundColor(colors.black)
+	wrap.setTextScale(1)
+	term.clear()
+	term.redirect(computerTerminal)
+	error()
+end
+
 -- Initialize two pages and their buttons
 do
 	page1:add("Test 1", function() toggler("Test 1", 1) end, 5, 12, 7, 13)	
-	page1:add("Exit", function() exit() end, 15, 22, 7, 13)	
+	page1:add("Exit", function() endProg() end, 15, 22, 7, 13)	
 	page1:add("Page 2", nextPage, 25, 32, 7, 13)	
 	page1:add("Test 2", function() toggler("Test 2", 1) end, 10, 17, 15, 21)	
 	page1:add("Test 3", function() toggler("Test 3", 1) end, 20, 27, 15, 21)

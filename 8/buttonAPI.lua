@@ -181,3 +181,5 @@ function new(monSide)
 	setmetatable(buttonInstance, {__index = Button})
 	return buttonInstance
 end
+
+return { new = new }
