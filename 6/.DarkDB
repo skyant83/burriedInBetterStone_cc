@@ -1,0 +1,17 @@
+{
+  pc = {
+    [ "5" ] = {
+      enCode = 27482,
+      area = 1,
+    },
+  },
+  ids = {},
+  user = {
+    skyant83 = {
+      pash = "1265",
+      password = "2499",
+      admin = true,
+      area = 1,
+    },
+  },
+}

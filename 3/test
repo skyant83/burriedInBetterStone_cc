@@ -1,0 +1,46 @@
+local monitor = peripheral.find("monitor")
+local mon = peripheral.getNames()
+monitor.setTextScale(0.5)
+if not fs.exists("grid") then
+  error("The grid API must be in the root directory, and must be named 'grid'")
+end
+os.loadAPI("grid")
+local test_x, test_y = peripheral.wrap(mon[1]).getSize()
+local x1,x2,y1,y2,x,y,butt
+local g = {
+  "+--",
+  "|..",
+  "|..",
+}
+term.setCursorPos(1,1)
+term.setTextColor(colors.gray)
+term.setBackgroundColor(colors.black)
+term.clear()
+term.write("Click and drag anywhere...")
+term.setTextColor(colors.white)
+while true do
+  _,butt,x,y = os.pullEvent("mouse_click")
+  term.clear()
+  while true do
+    local evt = {os.pullEvent()}
+    if evt[1] == "mouse_drag" then
+      x2,y2 = evt[3],evt[4]
+      term.clear()
+      grid.drawGrid(x,y,x2,y2,g)
+	  term.redirect(monitor)
+      grid.drawGrid(x,y,x2,y2,g)
+	  term.native()
+    end
+    if evt[1] == "mouse_up" then
+	  info = "x:"..x..",y:"..y..",x2:"..x2..",y2:"..y2
+	  term.setCursorPos(test_x-#info, test_y)
+      term.write(info)
+	  term.redirect(monitor)
+	  term.setCursorPos(test_x-#info, test_y)
+	  term.native()
+      if evt[2] == butt then
+        break
+      end
+    end
+  end
+end

@@ -1,0 +1,1 @@
+shell.run("screen","-mc",1,1,"1","2")
