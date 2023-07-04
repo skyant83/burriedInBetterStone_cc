@@ -1,9 +1,9 @@
--- Loads the Touchpoint API
-if fs.exists("buttonAPI.lua") == false then -- load buttonAPI
+-- Checksfor the existance of the required API files
+if fs.exists("buttonAPI.lua") == false then -- Downloads buttonAPI
 	print("Missing buttonAPI")
 	print("Attempting to download...")
 	if not http then
-	  error("Enable the HTTP API to download buttonAPI")
+		error("Enable the HTTP API to download buttonAPI")
 	end
 	getGit = http.get("https://raw.githubusercontent.com/skyant83/burriedInBetterStone_cc/main/8/buttonAPI.lua?token=GHSAT0AAAAAACEWCLVP2F6QB5SX7WZ4C3HIZFD77MQ")
 	getGit = getGit.readAll()
@@ -11,7 +11,7 @@ if fs.exists("buttonAPI.lua") == false then -- load buttonAPI
 	file.write(getGit)
 	file.close()  
 end
-if fs.exists("bigfont.lua") == false then -- load bigfont
+if fs.exists("bigfont.lua") == false then -- Downloads bigfont
 	print("Missing bigfont")
 	print("Attempting to download...")
 	if not http then
@@ -24,6 +24,7 @@ if fs.exists("bigfont.lua") == false then -- load bigfont
 	file.close()
 end
 
+-- Loads the Touchpoint API
 os.loadAPI("buttonAPI.lua")
 os.loadAPI("bigfont.lua")
 
@@ -97,7 +98,7 @@ local newlabel = {
 -- Initialize two pages and their buttons
 do
 	page1:add("Test 1", function() toggler("Test 1", 1) end, 5, 12, 7, 13)	
-	page1:add("Exit", nil, 15, 22, 7, 13)	
+	page1:add("Exit", function() exit() end, 15, 22, 7, 13)	
 	page1:add("Page 2", nextPage, 25, 32, 7, 13)	
 	page1:add("Test 2", function() toggler("Test 2", 1) end, 10, 17, 15, 21)	
 	page1:add("Test 3", function() toggler("Test 3", 1) end, 20, 27, 15, 21)
