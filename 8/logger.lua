@@ -12,6 +12,7 @@ function log( Str1, Str2 )
 		local closemodem=true -- This setting will close the modem after send error report.
 	local ignTime = false
 	local deleteOld = true
+	
 
 	local time = os.epoch("local") / 1000
 	local timeTable = os.date("%F-%I-%M-%S-%p", time)
