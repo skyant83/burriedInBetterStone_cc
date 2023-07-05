@@ -1,0 +1,19 @@
+Log created on day: 2023-07-05-07-53-38-PM (IRL time).
+Log created on day: 181 at 16:03 (in-game time).
+Computer ID: 8
+------------
+[LOG:2023-07-05-07-53-38-PM] APIs have been loaded
+[LOG:2023-07-05-07-53-38-PM] (oldtest logs)2023-07-05-01-43-40-AM.txt
+[LOG:2023-07-05-07-53-38-PM] (p).txt
+[LOG:2023-07-05-07-53-38-PM] 2023-07-05-01-54-13-AM.txt
+[LOG:2023-07-05-07-53-38-PM] 2023-07-05-01-55-04-AM.txt
+[LOG:2023-07-05-07-53-38-PM] 2023-07-05-07-43-38-PM.txt
+[LOG:2023-07-05-07-53-38-PM] 2023-07-05-07-50-48-PM.txt
+[LOG:2023-07-05-07-53-38-PM] 2023-07-05-07-53-11-PM.txt
+[LOG:2023-07-05-07-53-38-PM] latest.txt
+[LOG:2023-07-05-07-53-38-PM] Searching for attached monitors
+[LOG:2023-07-05-07-53-38-PM] Starting Scale: 0.5
+[LOG:2023-07-05-07-53-38-PM] Monitor 1: (top) wrapped
+[LOG:2023-07-05-07-53-38-PM] Set Scale: 0.5
+[LOG:2023-07-05-07-53-38-PM] Page 1 initialized: false
+[LOG:2023-07-05-07-53-38-PM] Page 2 initialized: false

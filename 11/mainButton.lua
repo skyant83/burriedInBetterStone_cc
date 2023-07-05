@@ -5,7 +5,8 @@ if fs.exists("buttonAPI.lua") == false then -- Downloads buttonAPI
 	if not http then
 		error("Enable the HTTP API to download buttonAPI")
 	end
-	getGit = http.get("https://raw.github.com/skyant83/burriedInBetterStone_cc/main/8/buttonAPI.lua")
+	local getGit = nil
+	getGit = http.get("https://raw.githubusercontent.com/skyant83/burriedInBetterStone_cc/main/8/buttonAPI.lua?token=GHSAT0AAAAAACEWCLVP2F6QB5SX7WZ4C3HIZFD77MQ")
 	getGit = getGit.readAll()
 	file = fs.open("buttonAPI.lua", "w")
 	file.write(getGit)
@@ -17,7 +18,8 @@ if fs.exists("bigfont.lua") == false then -- Downloads bigfont
 	if not http then
 	  error("Enable the HTTP API to download bigfont")
 	end
-	getGit = http.get("https://raw.github.com/skyant83/burriedInBetterStone_cc/main/8/bigfont.lua")
+	local getGit = nilg
+	getGit = http.get("https://raw.githubusercontent.com/skyant83/burriedInBetterStone_cc/main/8/bigfont.lua?token=GHSAT0AAAAAACEWCLVPWKF3GJS66VF2FMMYZFEABSQ")
 	getGit = getGit.readAll()
 	file = fs.open("bigfont.lua", "w")
 	file.write(getGit)
@@ -29,7 +31,8 @@ if fs.exists("logger.lua") == false then -- Downloads logger
 	if not http then
 		error("Enable the HTTP API to download logger")
 	end
-	getGit = http.get("https://raw.github.com/skyant83/burriedInBetterStone_cc/main/8/logger.lua")
+	local getGit = nil
+	getGit = http.get("https://raw.githubusercontent.com/skyant83/burriedInBetterStone_cc/main/8/logger.lua?token=GHSAT0AAAAAACEWCLVPH64VBUFD45BCZJOMZFEA26Q")
 	getGit = getGit.readAll()
 	file = fs.open("logger.lua", "w")
 	file.write(getGit)
@@ -41,7 +44,8 @@ if fs.exists("debugCommands.lua") == false then -- Downloads debugCommands
 	if not http then
 		error("Enable the HTTP API to download debugCommands")
 	end
-	getGit = http.get("https://raw.github.com/skyant83/burriedInBetterStone_cc/main/8/debugCommands.lua")
+	local getGit = nil
+	getGit = http.get("https://raw.githubusercontent.com/skyant83/burriedInBetterStone_cc/main/8/debugCommands.lua?token=GHSAT0AAAAAACEWCLVPAC56D237R5IXVTIYZFFI7QQ")
 	getGit = getGit.readAll()
 	file = fs.open("debugCommands.lua", "w")
 	file.write(getGit)

@@ -34,7 +34,7 @@ function getVariableName(var)
 	return nil
 end
 
-isEmptyVar = {
+local isEmptyVar = {
 	log = function(self, ...)
 		local arguments = { ... }
 

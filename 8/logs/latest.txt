@@ -1,9 +1,5 @@
-Log created on day: 2023-07-05-01-56-22-AM (IRL time).
-Log created on day: 178 at 23:22 (in-game time).
+Log created on day: 2023-07-05-08-08-11-PM (IRL time).
+Log created on day: 182 at 9:31 (in-game time).
 Computer ID: 8
 ------------
-[LOG:2023-07-05-01-56-22-AM] APIs have been loaded
-[LOG:2023-07-05-01-56-22-AM] Searching for attached monitors
-[LOG:2023-07-05-01-56-22-AM] Starting Scale: 1
-[LOG:2023-07-05-01-56-22-AM] Monitor 1: (top) wrapped
-[LOG:2023-07-05-01-56-22-AM] Set Scale: 0.5
+[LOG:2023-07-05-08-08-11-PM] APIs have been loaded
