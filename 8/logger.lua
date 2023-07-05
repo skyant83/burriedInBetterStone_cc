@@ -12,22 +12,15 @@ function log( Str1, Str2 )
 		local closemodem=true -- This setting will close the modem after send error report.
 	local ignTime = false
 	local deleteOld = true
+
 	
-
-	local time = os.epoch("local") / 1000
-	local timeTable = os.date("%F-%I-%M-%S-%p", time)
-
-	local gotlogs = fs.attributes("/logs/latest.txt")
-	
-	local gotTable = os.date("%F-%I-%M-%S-%p", gotlogs["modified"] / 1000)
-
 	if deleteOld == true then
 		local files = fs.list("/logs/")
 		if #files > 5 then
 			log("Old logs detected")
 			log("Deleting oldest files excluding the most recent 5 (including the legacy log ;))")
 			local toDelete = #files - 5
-
+			
 			for i = 1, toDelete do
 				local oldestFile = files[i]
 				if oldestFile ~= "(oldtest logs)2023-07-05-01-43-40-AM.txt" then
@@ -36,13 +29,8 @@ function log( Str1, Str2 )
 			end
 		end
 	end
-
-	if fs.exists(logfile) then
-		if gotTable ~= timeTable then
-			fs.move("/logs/latest.txt", "/logs/"..gotTable..".txt")
-		end
-	end
-
+	
+	
 	-- script
 	if logfiledisable == true and not fs.exists(logfile) then
 		local file=fs.open(logfile, "w")
@@ -54,6 +42,18 @@ function log( Str1, Str2 )
 		file.close()
 	end
 
+	local time = os.epoch("local") / 1000
+	local timeTable = os.date("%F-%I-%M-%S-%p", time)
+	
+	local gotlogs = fs.attributes("/logs/latest.txt")
+	
+	local gotTable = os.date("%F-%I-%M-%S-%p", gotlogs["modified"] / 1000)
+	if fs.exists(logfile) then
+		if gotTable ~= timeTable then
+			fs.move("/logs/latest.txt", "/logs/"..gotTable..".txt")
+		end
+	end
+	
 	if screenlog == true then
 		if Str1 == "error" or Str1 == "Error" or Str1 =="ERROR" then
 			if term.isColour() then
