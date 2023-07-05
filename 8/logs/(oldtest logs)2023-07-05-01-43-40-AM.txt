@@ -1,0 +1,66 @@
+Log created on day: 174 at 23:49 (in-game time).
+Computer ID: 8
+------------
+[LOG:174-23:49] APIs have been loaded
+[LOG:174-23:49] Searching for attached monitors
+[LOG:175-0:58] APIs have been loaded
+[LOG:175-0:58] Searching for attached monitors
+[LOG:175-4:02] APIs have been loaded
+[LOG:175-4:02] Searching for attached monitors
+[LOG:175-4:06] APIs have been loaded
+[LOG:175-4:06] Searching for attached monitors
+[LOG:175-4:31] APIs have been loaded
+[LOG:175-4:31] Searching for attached monitors
+[LOG:175-4:31] Starting Scale: 1
+[LOG:175-11:17] APIs have been loaded
+[LOG:175-11:17] Searching for attached monitors
+[LOG:175-14:01] APIs have been loaded
+[LOG:175-14:01] Searching for attached monitors
+[LOG:175-14:26] APIs have been loaded
+[LOG:175-14:26] Searching for attached monitors
+[LOG:175-14:26] Starting Scale: 0.5
+[LOG:175-18:24] APIs have been loaded
+[LOG:175-18:24] Searching for attached monitors
+[LOG:175-18:24] Starting Scale: 0.5
+[LOG:175-19:36] APIs have been loaded
+[LOG:175-19:36] Searching for attached monitors
+[LOG:175-19:36] Starting Scale: 0.5
+[LOG:175-19:36] Monitor 1: (top) wrapped
+[LOG:175-19:36] Set Scale: 0.5
+[LOG:175-19:49] APIs have been loaded
+[LOG:175-19:49] Searching for attached monitors
+[LOG:175-19:49] Starting Scale: 1
+[LOG:175-19:49] Monitor 1: (top) wrapped
+[LOG:175-19:49] Set Scale: 0.5
+[LOG:2023-07-05-01-28-08-AM] APIs have been loaded
+[LOG:2023-07-05-01-28-08-AM] Searching for attached monitors
+[LOG:2023-07-05-01-31-32-AM] APIs have been loaded
+[LOG:2023-07-05-01-31-32-AM] Searching for attached monitors
+[LOG:2023-07-05-01-31-32-AM] Starting Scale: 0.5
+[LOG:2023-07-05-01-31-32-AM] Monitor 1: (top) wrapped
+[LOG:2023-07-05-01-31-32-AM] Set Scale: 0.5
+[LOG:177-18:30] APIs have been loaded
+[LOG:177-18:30] Searching for attached monitors
+[LOG:177-18:30] Starting Scale: 0.5
+[LOG:177-18:30] Monitor 1: (top) wrapped
+[LOG:177-18:30] Set Scale: 0.5
+[LOG:178-3:23] APIs have been loaded
+[LOG:178-3:23] Searching for attached monitors
+[LOG:178-3:23] Starting Scale: 0.5
+[LOG:178-3:23] Monitor 1: (top) wrapped
+[LOG:178-3:23] Set Scale: 0.5
+[LOG:178-6:50] APIs have been loaded
+[LOG:178-6:50] Searching for attached monitors
+[LOG:178-6:50] Starting Scale: 0.5
+[LOG:178-6:50] Monitor 1: (top) wrapped
+[LOG:178-6:50] Set Scale: 0.5
+[LOG:178-7:13] APIs have been loaded
+[LOG:178-7:13] Searching for attached monitors
+[LOG:178-7:13] Starting Scale: 0.5
+[LOG:178-7:13] Monitor 1: (top) wrapped
+[LOG:178-7:13] Set Scale: 0.5
+[LOG:178-8:08] APIs have been loaded
+[LOG:178-8:08] Searching for attached monitors
+[LOG:178-8:08] Starting Scale: 0.5
+[LOG:178-8:08] Monitor 1: (top) wrapped
+[LOG:178-8:08] Set Scale: 0.5

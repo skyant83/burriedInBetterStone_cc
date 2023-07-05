@@ -1,3 +1,5 @@
+-- todo: add annotations
+
 function errorCheck(func)
 	local success, result = pcall(func)
 	if not success then

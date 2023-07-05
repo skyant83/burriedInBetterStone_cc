@@ -27,7 +27,7 @@ if fs.exists("logger.lua") == false then -- Downloads logger
 	print("Missing logger")
 	print("Attempting to download...")
 	if not http then
-	  error("Enable the HTTP API to download logger")
+		error("Enable the HTTP API to download logger")
 	end
 	getGit = http.get("https://raw.githubusercontent.com/skyant83/burriedInBetterStone_cc/main/8/logger.lua?token=GHSAT0AAAAAACEWCLVPH64VBUFD45BCZJOMZFEA26Q")
 	getGit = getGit.readAll()
@@ -36,29 +36,56 @@ if fs.exists("logger.lua") == false then -- Downloads logger
 	file.close()
 end
 
+
+--[[ function emptyVar(arg)
+if type(arg) == "table" then
+	for _,var in ipairs(arg) do
+		if type(var) ~= "userdata" then
+			if arg ~= nil then
+				
+			end
+		end
+	end
+end
+end
+]]
+
 -- Loads the All APIs
 buttonAPI = require("buttonAPI")
 bigfont = require("bigfont")
 logger = require("logger")
+debug = require("debugCommands")
+if buttonAPI ~=  nil and bigfont ~= nil and logger ~= nil then
+	logger.log("APIs have been loaded")
+else error("Failed to load APIs", 0)
+end
 
 -- Searches for attached monitors and initializes two pages of buttons for each
+log("Searching for attached monitors")
 findMon = peripheral.getNames()
+debug.isEmptyVar:log(findMon)
 
 if table.maxn(findMon) > 1 then
 	error("There are too many monitors connected. Maximum of 1 monitor is allowed", 2)
     error("Support for multiple montiros have yet to be implenented", 0)
-	logger.log()
-	exit()
+	logger.log("error", "There are too many monitors connected. Maximum of 1 monitor is allowed")
+	logger.log("error", "Support for multiple montiros have yet to be implenented")
+	error()
 end
 
-for _,side in pairs(findMon) do
+for i, side in pairs(findMon) do
 	wrap = peripheral.wrap(side)
+	logger.log("Starting Scale: "..wrap.getTextScale())
 	wrap.setTextScale(0.5)
+	if debug.isEmptyVar:check(wrap) == true then
+		error("error in wrapping peripherals", 0)
+	else
+		logger.log("Monitor "..i..": ("..side..") wrapped")
+		logger.log("Set Scale: "..wrap.getTextScale())
+	end
 
 	page1 = buttonAPI.new(side)
 	page2 = buttonAPI.new(side)
-	print("Mon".._..": "..side)
-	print(wrap.getTextScale())
 end
 
 --[[ 
@@ -132,8 +159,9 @@ do
 
 	page2:add(newlabel, function() toggler("p2Test2", 2) end,  6, 12, 7, 13)
 	page2:add("Page1", mainMenu, 15, 22, 7, 13)
-	page2:add("Exit" , function() exit() end, 25, 31, 7, 13)
+	page2:add("Exit" , function() endProg() end, 25, 31, 7, 13)
 end
+
 
 -- Draws the buttons
 mainMenu()
