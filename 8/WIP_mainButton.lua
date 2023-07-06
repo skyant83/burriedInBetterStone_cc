@@ -6,6 +6,7 @@ bigfont = require("bigfont.lua")
 findMon = peripheral.getNames()
 
 local screen = {}
+local fontSize = 0
 
 --[[ function paging(mon, page)
 	-- screen[mon] = buttonAPI.new(side)
@@ -63,12 +64,12 @@ function heading(text, align)
 end
 
 -- Main Menu
-function mainMenu()
+function mainMenu(i) -- the i is temprorary to stop warnings
 	t = screen[i]["page1"]
 end
 
 -- Page2
-function nextPage()
+function nextPage(i)
 	t = screen[i]["page2"]
 end
 
@@ -94,7 +95,7 @@ for i = 1, #screen do
 
 	screen[i]["page2"]:add(newlabel, function() toggler("p2Test2", 2) end,  6, 12, 7, 13)
 	screen[i]["page2"]:add("Page1", mainMenu, 15, 22, 7, 13)
-	screen[i]["page2"]:add("Exit" , function() exit() end, 25, 31, 7, 13)
+	screen[i]["page2"]:add("Exit" , function() error() end, 25, 31, 7, 13)
 end
 
 -- Draws the buttons
