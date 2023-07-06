@@ -1,6 +1,6 @@
 -- Loads the Touchpoint API
-os.loadAPI("buttonAPI.lua")
-os.loadAPI("bigfont.lua")
+buttonAPI = require("buttonAPI.lua")
+bigfont = require("bigfont.lua")
 
 -- Searches for attached monitors and initializes two pages of buttons for each
 findMon = peripheral.getNames()
