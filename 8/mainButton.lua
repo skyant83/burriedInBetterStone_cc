@@ -62,6 +62,8 @@ end
 end
 ]]
 
+local fontSize = 1
+
 -- Loads the All APIs
 buttonAPI = require("buttonAPI")
 bigfont = require("bigfont")

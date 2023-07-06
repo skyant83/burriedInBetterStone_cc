@@ -1,0 +1,15 @@
+Log created on: 2023-07-07-03-20-42-AM (IRL time).
+Computer ID: 8
+------------
+[LOG:2023-07-07-03-20-42-AM] FailedDelete: /logs/2023-07-05-07-53-38-PM.txt 
+[LOG:2023-07-07-03-20-42-AM] FailedDelete: /logs/2023-07-05-07-53-38-PM - Copy.txt 
+[LOG:2023-07-07-03-20-42-AM] FailedDelete: /logs/2023-07-05-07-53-11-PM.txt 
+[LOG:2023-07-07-03-20-42-AM] FailedDelete: /logs/2023-07-05-07-53-11-PM - Copy.txt 
+[LOG:2023-07-07-03-20-42-AM] APIs have been loaded
+[LOG:2023-07-07-03-20-42-AM] FailedDelete: /logs/2023-07-05-08-08-11-PM - Copy.txt 
+[LOG:2023-07-07-03-20-42-AM] Searching for attached monitors
+[LOG:2023-07-07-03-20-42-AM] Monitor 1: (top) wrapped
+[LOG:2023-07-07-03-20-42-AM] Starting Scale: 0.5
+[LOG:2023-07-07-03-20-42-AM] Set Scale: 0.5
+[LOG:2023-07-07-03-20-42-AM] Page 1 initialized: false
+[LOG:2023-07-07-03-20-42-AM] Page 2 initialized: false

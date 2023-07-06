@@ -11,39 +11,55 @@ function log( Str1, Str2 )
 		local senderrorid=0 -- Change this to the ID where the errors send to.
 		local closemodem=true -- This setting will close the modem after send error report.
 	local ignTime = false
-	local deleteOld = true
+	local deleteOld = false -- Don't change, currently unresponsive
 
 	
+	-- if deleteOld == true then
+	-- 	local files = fs.list("/logs/")
+	-- 	if #files > 5 then
+	-- 		log("Old logs detected")
+	-- 		log("Deleting oldest files excluding the most recent 5 (including the legacy log ;))")
+	-- 		local toDelete = #files - 5
+	
+	-- 		for i = 1, toDelete do
+	-- 			local oldestFile = files[i]
+	-- 			if oldestFile ~= "(oldtest logs)2023-07-05-01-43-40-AM.txt" then
+	-- 				fs.delete("/logs/"..oldestFile)
+	-- 			end
+	-- 		end
+	-- 	end
+	-- end
+	
+	local dirPath = "/logs"
+	local files = fs.list(dirPath)
+	
 	if deleteOld == true then
-		local files = fs.list("/logs/")
-		if #files > 5 then
+		for i = 1, #files - 5 do
 			log("Old logs detected")
 			log("Deleting oldest files excluding the most recent 5 (including the legacy log ;))")
-			local toDelete = #files - 5
-			
-			for i = 1, toDelete do
-				local oldestFile = files[i]
-				if oldestFile ~= "(oldtest logs)2023-07-05-01-43-40-AM.txt" then
-					fs.delete("/logs/"..oldestFile)
-				end
+			local filePath = dirPath.."/"..files[i]
+
+			if fs.exists(filePath) then
+				local success, err = fs.delete(filePath)
+				log("DeletedFile: "..filePath)
 			end
 		end
 	end
-	
-	
+		
 	-- script
+	local time = os.epoch("local") / 1000
+	local timeTable = os.date("%F-%I-%M-%S-%p", time)
 	if logfiledisable == true and not fs.exists(logfile) then
 		local file=fs.open(logfile, "w")
-		-- file.writeLine("-- Log script by iRichard --")
+		-- file.writeLine("-- Log script by iRichard --")/
 		file.writeLine("Log created on day: "..timeTable.." (IRL time).")
 		file.writeLine("Log created on day: "..os.day().." at "..textutils.formatTime(os.time(), timedate).." (in-game time).")
+		---@class getComputerID
 		file.writeLine("Computer ID: "..os.getComputerID())
 		file.writeLine("------------")
 		file.close()
 	end
 
-	local time = os.epoch("local") / 1000
-	local timeTable = os.date("%F-%I-%M-%S-%p", time)
 	
 	local gotlogs = fs.attributes("/logs/latest.txt")
 	

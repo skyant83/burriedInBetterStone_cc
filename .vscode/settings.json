@@ -1,46 +1,59 @@
 {
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.settings.editor": "json",
+
+
     "Lua.diagnostics.disable": [
         "unused-local",
         "lowercase-global",
-        "unused-function"
+        "unused-function",
+        "undefined-field",
+        "deprecated"
     ],
     "Lua.diagnostics.severity": {
         "redefined-local": "Warning"
     },
     "Lua.diagnostics.globals": [
-        "printError",
-        "sleep",
-        "read",
-        "write",
-        "print",
-        "colours",
+        "bit",
         "colors",
+        "colours",
         "commands",
         "disk",
         "fs",
         "gps",
         "help",
         "http",
+        "keys",
+        "multishell",
         "paintutils",
         "parallel",
         "peripheral",
+        "pocket",
         "rednet",
         "redstone",
-        "keys",
+        "rs",
         "settings",
         "shell",
-        "multishell",
         "term",
         "textutils",
         "turtle",
-        "pocket",
         "vector",
-        "bit32",
         "window",
         "_CC_DEFAULT_SETTINGS",
         "_HOST",
+        "printError",
+        "write",
+        "read",
+        "sleep",
+        "print",
+        "bit32",
         "_VERSION",
         "_"
     ],
     "Lua.runtime.version": "Lua 5.1",
+    "Lua.diagnostics.groupSeverity": {
+        "redefined": "Warning"
+    },
+    "files.autoSave": "afterDelay",
+    "git.autofetch": true,
 }

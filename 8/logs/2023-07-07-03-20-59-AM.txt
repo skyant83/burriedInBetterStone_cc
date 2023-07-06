@@ -1,0 +1,31 @@
+Log created on: 2023-07-07-03-20-59-AM (IRL time).
+Computer ID: 8
+------------
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM.txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy.txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy - Copy.txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy - Copy (3).txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy - Copy (2).txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy (5).txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy (4).txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy (4) - Copy.txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy (3).txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy (3) - Copy.txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy (2).txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-19-56-AM - Copy (2) - Copy.txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-05-08-08-11-PM.txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-05-08-08-11-PM - Copy.txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-05-08-08-11-PM - Copy - Copy.txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-05-08-08-11-PM - Copy - Copy (3).txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-05-08-08-11-PM - Copy - Copy (2).txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-05-08-08-11-PM - Copy (4).txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-05-08-08-11-PM - Copy (3).txt 
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-05-08-08-11-PM - Copy (2).txt 
+[LOG:2023-07-07-03-20-59-AM] APIs have been loaded
+[LOG:2023-07-07-03-20-59-AM] FailedDelete: /logs/2023-07-07-03-20-07-AM - Copy (2).txt 
+[LOG:2023-07-07-03-20-59-AM] Searching for attached monitors
+[LOG:2023-07-07-03-20-59-AM] Monitor 1: (top) wrapped
+[LOG:2023-07-07-03-20-59-AM] Starting Scale: 0.5
+[LOG:2023-07-07-03-20-59-AM] Set Scale: 0.5
+[LOG:2023-07-07-03-20-59-AM] Page 1 initialized: false
+[LOG:2023-07-07-03-20-59-AM] Page 2 initialized: false
