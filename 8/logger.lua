@@ -10,8 +10,8 @@ function log( Str1, Str2 )
 	local senderror=false -- If this settings on 'true' then send the errors to a computer. You must be installed a rednet modem!
 		local senderrorid=0 -- Change this to the ID where the errors send to.
 		local closemodem=true -- This setting will close the modem after send error report.
-	local ignTime = false
-	local deleteOld = false -- Don't change, currently unresponsive
+	local ignTime = false -- This setting will use the ingame time as the log header instead of the IRL time.
+	local deleteOld = false -- Don't change, currently unresponsive.
 
 	
 	-- if deleteOld == true then

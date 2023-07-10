@@ -75,10 +75,11 @@ end
 
 -- Searches for attached monitors and initializes two pages of buttons for each
 log("Searching for attached monitors")
-findMon = peripheral.getNames()
-isEmptyVar:log(findMon)
+findPeripheral = peripheral.getNames()
+isEmptyVar:log(findPeripheral)
 
-if table.maxn(findMon) > 1 then
+
+if table.maxn(findPeripheral) > 1 then
 	logger.log("error", "There are too many monitors connected. Maximum of 1 monitor is allowed")
 	logger.log("error", "Support for multiple montiros have yet to be implenented")
 	error("There are too many monitors connected. Maximum of 1 monitor is allowed", 2)
@@ -86,15 +87,19 @@ if table.maxn(findMon) > 1 then
 	error()
 end
 
-for i, side in pairs(findMon) do
+for i, side in pairs(findPeripheral) do
 	wrap = peripheral.wrap(side)
 	if isEmptyVar:check(wrap) == true then
 		error("error in wrapping peripherals", 0)
 	else
-		logger.log("Monitor "..i..": ("..side..") wrapped")
-		logger.log("Starting Scale: "..wrap.getTextScale())
-		wrap.setTextScale(0.5)
-		logger.log("Set Scale: "..wrap.getTextScale())
+		if side == "monitor" then
+			logger.log("Monitor "..i..": ("..side..") wrapped")
+			logger.log("Starting Scale: "..wrap.getTextScale())
+			wrap.setTextScale(0.5)
+			logger.log("Set Scale: "..wrap.getTextScale())
+		elseif side == "modem" then
+			rednet.open(wrap)
+		end
 	end
 
 	-- Initializes two pages of buttons set on attached Monitor
