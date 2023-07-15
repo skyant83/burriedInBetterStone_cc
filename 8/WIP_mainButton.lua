@@ -37,11 +37,11 @@ end
 end
 mon = findMon[1]
 print(mon)
-peripheral.wrap(mon).setTextScale(0.5)
+peripheral.wrap(mon).setTextScale(0.5) ]]
 
 -- Initializes two pages of buttons set on attached monitor
 local page1 = buttonAPI.new(mon)
-local page2 = buttonAPI.new(mon) ]]
+local page2 = buttonAPI.new(mon)
 
 -- Page number variable
 local t

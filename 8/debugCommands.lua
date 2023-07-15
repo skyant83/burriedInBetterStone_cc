@@ -9,12 +9,12 @@ function errorCheck(func)
 	end
 end
 
--- Function to convert variable name to string
+--* Function to convert variable name to string
 function getVariableName(var)
 	local localVarName
 	local localVarValue
 
-	-- Iterate over the local variables in the current stack frame
+	--* Iterate over the local variables in the current stack frame
 	local i = 1
 	while true do
 		localVarName, localVarValue = debug.getlocal(2, i)
@@ -22,7 +22,7 @@ function getVariableName(var)
 			break
 		end
 
-		-- Check if the variable value matches the given var
+		--* Check if the variable value matches the given var
 		if localVarValue == var then
 			return localVarName
 		end
@@ -30,8 +30,26 @@ function getVariableName(var)
 		i = i + 1
 	end
 
-	-- If the variable name was not found, return nil or an empty string
+	--* If the variable name was not found, return nil or an empty string
 	return nil
+end
+
+function containsValue(table, value)
+	for _,item in ipairs(table) do
+		if item == value then
+			return true
+		end
+	end
+	return false
+end
+
+function notContainValue(table, value)
+	for _,item in ipairs(table) do
+		if item == value then
+			return false
+		end
+	end
+	return true
 end
 
 isEmptyVar = {

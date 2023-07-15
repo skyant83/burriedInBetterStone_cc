@@ -48,7 +48,8 @@
         "print",
         "bit32",
         "_VERSION",
-        "_"
+        "_",
+        "_ENV"
     ],
     "Lua.runtime.version": "Lua 5.1",
     "Lua.diagnostics.groupSeverity": {

@@ -1,38 +1,40 @@
-function log( Str1, Str2 )
-	-- instructions
-	-- To write in you log (file) use this: log("Message"), is there a error? Use this: log("error", "Message")
-	-- settings
-	local logfile="logs/latest.txt" -- This is the destination where the logs and errors in writed.
-	local logfiledisable=true -- To turn of the log file, change this to 'false'.
-	local erroronly=false -- If this setting on 'true' then putt only errors in the log file.
-	local screenlog=true -- This setting show the log file on the computer screen, to turn it off, change this to 'false'.
-	local timedate=true -- This setting can you change the time to 24h or 12h (AM/PM). True = 24h, false = 12h (AM/PM)
-	local senderror=false -- If this settings on 'true' then send the errors to a computer. You must be installed a rednet modem!
-		local senderrorid=0 -- Change this to the ID where the errors send to.
-		local closemodem=true -- This setting will close the modem after send error report.
-	local ignTime = false -- This setting will use the ingame time as the log header instead of the IRL time.
-	local deleteOld = false -- Don't change, currently unresponsive.
+--* Instructions
+--? To write in you log (file) use this: log("Message"), is there a error? Use this: log("error", "Message")
 
-	
-	-- if deleteOld == true then
-	-- 	local files = fs.list("/logs/")
-	-- 	if #files > 5 then
-	-- 		log("Old logs detected")
-	-- 		log("Deleting oldest files excluding the most recent 5 (including the legacy log ;))")
-	-- 		local toDelete = #files - 5
-	
-	-- 		for i = 1, toDelete do
-	-- 			local oldestFile = files[i]
-	-- 			if oldestFile ~= "(oldtest logs)2023-07-05-01-43-40-AM.txt" then
-	-- 				fs.delete("/logs/"..oldestFile)
-	-- 			end
-	-- 		end
-	-- 	end
-	-- end
-	
+--* Settings
+local logfile = "logs/latest.txt" 	-- This is the destination where the logs and errors in writed.
+local logfiledisable = true  		-- To turn off the log file, change this to 'false'.
+local erroronly = false      		-- If this setting on 'true' then putt only errors in the log file.
+local screenlog = true       		-- This setting show the log file on the computer screen, to turn it off, change this to 'false'.
+local timedate = true        		-- This setting can you change the time to 24h or 12h (AM/PM). True = 24h, false = 12h (AM/PM)
+local senderror = false      		-- If this settings on 'true' then send the errors to a computer. You must be installed a rednet modem!
+local senderrorid = 0        		-- Change this to the ID where the errors send to.
+local closemodem = true      		-- This setting will close the modem after send error report.
+local ignTime = false        		-- This setting will use the ingame time as the log header instead of the IRL time.
+local deleteOld = false      		--! Don't change, currently unresponsive.
+
+--// if deleteOld == true then
+--// 	local files = fs.list("/logs/")
+--// 	if #files > 5 then
+--// 		log("Old logs detected")
+--// 		log("Deleting oldest files excluding the most recent 5 (including the legacy log ;))")
+--// 		local toDelete = #files - 5
+
+--// 		for i = 1, toDelete do
+--// 			local oldestFile = files[i]
+--// 			if oldestFile ~= "(oldtest logs)2023-07-05-01-43-40-AM.txt" then
+--// 				fs.delete("/logs/"..oldestFile)
+--// 			end
+--// 		end
+--// 	end
+--// end
+
+fs.makeDir("logs/")
 	local dirPath = "/logs"
 	local files = fs.list(dirPath)
-	
+
+	--! Currently isn't working results in too long without yielding error
+	--? Should it just be removed?
 	if deleteOld == true then
 		for i = 1, #files - 5 do
 			log("Old logs detected")
@@ -45,31 +47,46 @@ function log( Str1, Str2 )
 			end
 		end
 	end
-		
-	-- script
+
+
+	--Todo: Annotate the formation formation header
 	local time = os.epoch("local") / 1000
 	local timeTable = os.date("%F-%I-%M-%S-%p", time)
 	if logfiledisable == true and not fs.exists(logfile) then
+	print("logfile doesn't exist")
 		local file=fs.open(logfile, "w")
-		-- file.writeLine("-- Log script by iRichard --")/
+		--// file.writeLine("-- Log script by iRichard --")/
 		file.writeLine("Log created on day: "..timeTable.." (IRL time).")
 		file.writeLine("Log created on day: "..os.day().." at "..textutils.formatTime(os.time(), timedate).." (in-game time).")
-		---@class getComputerID
+		---@class getComputerID --? Just to get rid of warnings in the IDE
 		file.writeLine("Computer ID: "..os.getComputerID())
 		file.writeLine("------------")
 		file.close()
+elseif logfiledisable == true and fs.exists(logfile) then
+	print("logfile exists")
+	fs.delete(logfile)
+	local file=fs.open(logfile, "w")
+	file.writeLine("Log created on day: "..timeTable.." (IRL time).")
+	file.writeLine("Log created on day: "..os.day().." at "..textutils.formatTime(os.time(), timedate).." (in-game time).")
+	---@class getComputerID --? Just to get rid of warnings in the IDE
+	file.writeLine("Computer ID: "..os.getComputerID())
+	file.writeLine("------------")
+	file.close()
 	end
-
-	
 	local gotlogs = fs.attributes("/logs/latest.txt")
 	
 	local gotTable = os.date("%F-%I-%M-%S-%p", gotlogs["modified"] / 1000)
+print(gotTable)
 	if fs.exists(logfile) then
+	if not fs.exists(gotTable..".txt") then
 		if gotTable ~= timeTable then
 			fs.move("/logs/latest.txt", "/logs/"..gotTable..".txt")
 		end
 	end
-	
+end
+
+function log( Str1, Str2 )
+
 	if screenlog == true then
 		if Str1 == "error" or Str1 == "Error" or Str1 =="ERROR" then
 			if term.isColour() then
@@ -119,7 +136,7 @@ function log( Str1, Str2 )
 					if logfiledisable == true then
 						if not fs.exists(logfile) then
 							local file=fs.open(logfile, "w")
-							-- file.writeLine("-- Log script by iRichard980 --")
+							--// file.writeLine("-- Log script by iRichard980 --")
 							file.writeLine("Log created on: "..timeTable.." (IRL time).")
 							file.writeLine("Log created on day: "..os.day().." at "..textutils.formatTime(os.time(), timedate).." (in-game time).")
 							file.writeLine("Computer ID: "..os.getComputerID())
@@ -145,7 +162,7 @@ function log( Str1, Str2 )
 			if logfiledisable == true and erroronly == false then
 				if not fs.exists(logfile) then
 					local file=fs.open(logfile, "w")
-					-- file.writeLine("-- Log script by iRichard980 --")
+					--// file.writeLine("-- Log script by iRichard980 --")
 					if ignTime == false then
 						file.writeLine("Log created on: "..timeTable.." (IRL time).")
 					else

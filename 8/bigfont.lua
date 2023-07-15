@@ -1,3 +1,4 @@
+---@diagnostic disable: redundant-parameter
 -------------------------------------------------------------------------------------
 -- Wojbies API 5.0 - Bigfont - functions to write bigger font using drawing sybols --
 -------------------------------------------------------------------------------------
@@ -239,8 +240,8 @@ b.hugePrint = function(sString)
 end
 
 --# Write/blit string on terminal in specified location
-b.doc.writeOn = [[writeOn(tTerminal, nSize, sString, [nX], [nY]) - Writes sString on tTerminal using current tTerminal colours. nX, nY are coordinates. If any of them are nil then text is centered in that axis using tTerminal size.]]
-b.writeOn = function(tTerminal, nSize, sString, nX, nY)
+b.doc.writeOn = [[writeOn(tTerminal, nSize, sString, [nX], [nY], textColor, bgColor) - Writes sString on tTerminal using current tTerminal colours. nX, nY are coordinates. If any of them are nil then text is centered in that axis using tTerminal size.]]
+b.writeOn = function(tTerminal, nSize, sString, nX, nY, textColor, bgColor)
     expect(1, tTerminal, "table")
     field(tTerminal, "getSize", "function")
     field(tTerminal, "scroll", "function")
@@ -252,7 +253,10 @@ b.writeOn = function(tTerminal, nSize, sString, nX, nY)
     expect(3, sString, "string")
     expect(4, nX, "number", "nil")
     expect(5, nY, "number", "nil")
-    press(tTerminal, makeText(nSize, sString, tTerminal.getTextColor(), tTerminal.getBackgroundColor()), nX, nY)
+    expect(6, textColor, "number", "nil")
+    expect(7, bgColor, "number", "nil")
+    --// press(tTerminal, makeText(nSize, sString, tTerminal.getTextColor(), tTerminal.getBackgroundColor()), nX, nY)
+    press(tTerminal, makeText(nSize, sString, textColor, bgColor), nX, nY)
 end
 
 b.doc.blitOn = [[writeOn(tTerminal, nSize, sString, sFront, sBack, [nX], [nY]) - Blits sString on tTerminal with sFront and sBack colors . nX, nY are coordinates. If any of them are nil then text is centered in that axis using tTerminal size.]]
