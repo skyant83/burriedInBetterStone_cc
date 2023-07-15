@@ -153,13 +153,13 @@ function toggler(name, refPage)
 		print("Selected fruit: " .. refPage)
 	end
 
-	-- if page == 1 then
-		-- mainPage:toggleButton(name)
-	-- elseif page == 2 then
-		-- item3:toggleButton(name)
-	-- else
-		-- error("page non-existant", 2)
-	-- end
+	--// if page == 1 then
+		--// mainPage:toggleButton(name)
+	--// elseif page == 2 then
+		--// item3:toggleButton(name)
+	--// else
+		--// error("page non-existant", 2)
+	--// end
 end
 
 function heading(text, align)
